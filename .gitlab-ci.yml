@@ -1,0 +1,14 @@
+stages:
+  - run
+
+run-run:
+  stage: run
+  image: rust:latest
+  tags:
+    - linux
+  script:
+    - rustc -V
+    - cargo -V
+    - cargo build
+    - cargo run > ${HOME}/res.txt
+    - cat ${HOME}/res.txt
